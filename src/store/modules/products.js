@@ -18,6 +18,11 @@ export default {
     SET_GOODS(state, newProducts) {
       state.items = newProducts
     },
+    TOGGLE_FAVORITE(state, productId) {
+      const product = state.items.find((t) => +t.id === +productId)
+
+      if (product) product.isFavorite = !product.isFavorite
+    },
   },
   actions: {
     async getProducts({ commit }) {
@@ -30,6 +35,7 @@ export default {
         productList = productList.map((t) => {
           t.img = getRandomImg()
           t.price = getRandomPrice()
+          t.isFavorite = false
           return t
         })
         commit('SET_GOODS', productList)
@@ -38,5 +44,9 @@ export default {
       }
     },
   },
-  getters: {},
+  getters: {
+    favoriteProducts(state) {
+      return state.items.filter((product) => product.isFavorite)
+    },
+  },
 }

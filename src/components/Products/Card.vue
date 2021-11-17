@@ -1,5 +1,9 @@
 <template>
   <div class="product-card">
+    <FavoriteBadge
+      :active="product.isFavorite"
+      @click="toggleFavorite(product.id)"
+    />
     <div class="product-card__image">
       <img :src="product.img" />
     </div>
@@ -28,17 +32,10 @@
 </template>
 
 <script>
-import CountControl from '@/components/UI/CountControl'
+import productCardMixin from '@/mixins/productCard'
 
 export default {
-  components: { CountControl },
-  props: {
-    product: {
-      type: Object,
-      required: true,
-      default: () => ({}),
-    },
-  },
+  mixins: [productCardMixin],
   computed: {
     cart() {
       return this.$store.state.cart.items
@@ -47,18 +44,21 @@ export default {
       return this.cart[this.product.id] || null
     },
   },
-  methods: {
-    updateCart(type, product) {
-      this.$store.commit(type, product)
-    },
-  },
 }
 </script>
 
 <style scoped>
 .product-card {
+  position: relative;
   display: flex;
   flex-direction: column;
+}
+
+.favorite-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 1;
 }
 
 .product-card__image {

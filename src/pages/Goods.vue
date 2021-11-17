@@ -1,5 +1,5 @@
 <template>
-  <div class="page page__goods">
+  <div class="page page--goods">
     <div class="page__content container">
       <h1 class="page__title">Товары</h1>
       <ProductsTable v-if="products.length" :items="products" />
@@ -16,11 +16,6 @@ export default {
   components: {
     ProductsTable,
     Preloader,
-  },
-  data() {
-    return {
-      isLoading: true,
-    }
   },
   computed: {
     products() {

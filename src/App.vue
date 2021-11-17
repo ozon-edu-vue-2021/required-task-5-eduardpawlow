@@ -25,6 +25,7 @@ export default {
 :root {
   --color-primary: #265af7;
   --color-primary-hover: #0742f3;
+  --color-red: #f91155;
 }
 
 * {
