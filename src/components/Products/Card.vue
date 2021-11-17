@@ -97,14 +97,17 @@ export default {
 .product-card__title {
   margin-bottom: 8px;
 
-  font-size: 16px;
+  font-size: 18px;
   line-height: 160%;
 }
 
 .product-card__descr {
   display: flex;
   display: -webkit-box;
-  max-height: 55px;
+  max-height: 54px;
+
+  font-size: 14px;
+  line-height: 18px;
 
   overflow: hidden;
   -webkit-box-orient: vertical;

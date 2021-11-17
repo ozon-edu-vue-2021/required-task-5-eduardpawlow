@@ -22,17 +22,22 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  color: #2c3e50;
-  background-color: #fafafa;
-  box-sizing: border-box;
+:root {
+  --color-primary: #265af7;
+  --color-primary-hover: #0742f3;
 }
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+}
+
+#app {
+  min-height: 100vh;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  color: #2c3e50;
+  background-color: #fafafa;
 }
 
 a {
@@ -73,12 +78,12 @@ a:visited {
 }
 
 .btn.btn--primary {
-  background: #265af7;
+  background: var(--color-primary);
 
   color: #fff;
 }
 
 .btn.btn--primary:hover {
-  background: #0742f3;
+  background: var(--color-primary-hover);
 }
 </style>
